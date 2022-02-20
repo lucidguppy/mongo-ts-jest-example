@@ -1,25 +1,10 @@
-import { Db, MongoClient } from "mongodb";
-import { MongoMemoryServer } from "mongodb-memory-server";
+import { Db } from "mongodb";
+import { client } from "../../test/setupFile";
 describe("insert", () => {
-  let mongod: MongoMemoryServer;
-  let uri: string;
   let db: Db;
-  let client: MongoClient;
 
-  beforeAll(async () => {
-    mongod = await MongoMemoryServer.create();
-    uri = mongod.getUri();
-    client = await MongoClient.connect(uri);
+  beforeEach(() => {
     db = client.db("TEST");
-  });
-
-  afterAll(async () => {
-    if (client) {
-      await client.close();
-    }
-    if (mongod) {
-      await mongod.stop();
-    }
   });
 
   it("should insert a doc into collection", async () => {
