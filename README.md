@@ -6,7 +6,7 @@ Bare minimum to get unit tests for mongodb and typescript
   npm init -y
   npm i -D @types/jest jest mongodb-memory-server ts-jest typescript
   npm i mongodb
-  <MODS TO YOUR PACKAGE>JSON
+  <edit your package.json to your liking like adding npx jest to the test script section>
   tsc --init
   npx ts-jest config:init
   npm run test
@@ -31,5 +31,5 @@ Edits to package.json
 npm install
 tsc --init
 npx ts-jest config:init
-npm run test
+npm test
 ```
